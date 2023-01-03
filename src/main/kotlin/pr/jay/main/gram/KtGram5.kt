@@ -24,4 +24,6 @@ class KtGram5 {
         return a + b + c
         //리턴 발생 시 함수 중간이더라도 함수 종료
     }
+
+
 }
