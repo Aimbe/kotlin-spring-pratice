@@ -2,13 +2,12 @@ package pr.jay.main.gram
 
 class KtGram2 {
 
-    //람다
-    val fruits = listOf("banana", "avocado", "apple", "kiwi");
-    fruits.filter { it.startsWith"a") }.sortedBy { it }.map { it.toUpperCase() }.forEach { println(it) }
+    //여러 타입을 인수로 받기
 
-    val items = setOf("apple", "banan", "kiwi")
-    when {
-        "orange" in items -> println("juicy")
-        "apple" in items -> println("apple is fine too")
+    fun <T, R> toFunction(value1: T, value2: R): () -> T = { value1 }
+
+    fun main(args: Array<String>) {
+        val func: () -> Int = toFunction<Int, String>(1170, "test")
+        println(func())
     }
 }
