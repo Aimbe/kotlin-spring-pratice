@@ -41,15 +41,15 @@ public class JavaStreamPratice {
 
     }
 
-    public void test4(){
-
-
-
-        String<String> stream = Stream<String>builder()
-                .add("Apple")
-                .add("Banana")
-                .add("Melon")
-                .build();
-
-    }
+//    public void test4(){
+//
+//
+//
+//        String<String> stream = Stream<String>builder()
+//                .add("Apple")
+//                .add("Banana")
+//                .add("Melon")
+//                .build();
+//
+//    }
 }
