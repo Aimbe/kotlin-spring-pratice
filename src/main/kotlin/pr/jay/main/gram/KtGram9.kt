@@ -20,7 +20,7 @@ class KtGram9 {
     fun main(){
         val map1 = mapOf("key1" to 1, "key2" to 2, "key3" to 3)
         val map2 = mapOf<String, Char>("key1" to '1', "key2" to '2', "key3" to '3')
-        println(map1)       // {key1=1, key2=2, key3=3}
+        println(map1)       // {key1=1,     key2=2, key3=3}
     }
 
 
