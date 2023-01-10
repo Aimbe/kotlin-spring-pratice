@@ -25,8 +25,8 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter")
 		implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-	implementation("org.apache.httpcomponents:httpclient:4.5")
-	implementation("org.jetbrains.kotlin:kotlinx-coroutines-core:1.5.1")
+	// https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-coroutines-core
+	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
 	compileOnly("org.projectlombok:lombok")
 	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 	annotationProcessor("org.projectlombok:lombok")
