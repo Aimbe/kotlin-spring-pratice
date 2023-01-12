@@ -8,15 +8,15 @@ import org.springframework.web.client.RestTemplate
 @Configuration
 class RestTemplateConfiguration {
 
-    @Bean
-    fun restTemplate() : RestTemplate {
-        val client = HttpClientBuilder.create()
-                .setConnectionManager().
-                .setMaxConnTotal(50)
-                .setMaxConnPerRoute(20)
-                .build()
-
-
-        return restTemplate();
-    }
+//    @Bean
+//    fun restTemplate() : RestTemplate {
+//        val client = HttpClientBuilder.create()
+//                .setConnectionManager().
+//                .setMaxConnTotal(50)
+//                .setMaxConnPerRoute(20)
+//                .build()
+//
+//
+//        return restTemplate();
+//    }
 }
