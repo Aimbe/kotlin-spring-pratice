@@ -1,7 +1,9 @@
 package pr.jay.main.gram
 
+import org.jetbrains.kotlin.com.intellij.util.Function.Mono
 import java.io.BufferedWriter
 import java.io.OutputStreamWriter
+
 
 class KtGram12 {
 
@@ -35,21 +37,11 @@ class KtGram12 {
 
     val numbers = mutableListOf(1, 2, 3, 4)
     val stack = MutableList<Int>(4) { it }
-
-// stack.push(5)
-    numbers.add(5)
-
-// stack.pop()
-    numbers.removeLast()
-
-// stack.peek()
-    numbers.last()
-
-// 비어있는지 확인
-    numbers.isEmpty()
-
-// 내용물이 있는지 확인
-    numbers.isNotEmpty()
-
-//크기
-    numbers.size
+    fun getItemListByType(userId: org.jetbrains.kotlin.com.intellij.util.Function.Mono<String?>, type: ItemInformation.Type?): Flux<ItemInformation?>? {
+        return userId
+                .flatMap(userRepo::findById)
+                .switchIfEmpty(org.jetbrains.kotlin.com.intellij.util.Function.Mono.empty())
+                .map(User::getInventory)
+                .flatMapMany(Flux::fromIterable)
+                .filter { item -> ItemInformation.isType(item, type) }
+    }
