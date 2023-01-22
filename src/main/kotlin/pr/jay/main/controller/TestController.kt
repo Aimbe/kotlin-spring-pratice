@@ -10,6 +10,8 @@ import org.testng.annotations.Test
 class TestController {
 
 
+
+
     @GetMapping("/")
     fun blog(model: Model): String{
         model["title"] = "TT"
