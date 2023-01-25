@@ -2,6 +2,7 @@ package pr.jay.main.config
 
 import org.springframework.context.annotation.Bean
 
+@
 class RedisConfiguration {
 
     private val primaryHost = ""
@@ -27,5 +28,16 @@ class RedisConfiguration {
                 .build()
 
         return LettuceConnectionFactory(elastiCache, clientConfig)
+    }
+
+
+        @Bean
+        fun redisConnectionFactory(): LettuceConnectionFactory {
+            val configuration = RedisStandaloneConfiguration()
+            configuration.hostName = redisHost
+            configuration.port = redisPort
+//        configuration.password = RedisPassword.of(redisPassword)
+            return LettuceConnectionFactory(configuration)
+        }
     }
 }
