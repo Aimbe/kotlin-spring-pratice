@@ -1,12 +1,15 @@
 package pr.jay.main.config
 
 import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
+import org.springframework.data.redis.connection.RedisStandaloneConfiguration
+import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory
 
-@
+@Configuration
 class RedisConfiguration {
 
-    private val primaryHost = ""
-    private val primaryPort = 0
+    private val primaryHost = "192.168.35.101"
+    private val primaryPort = 6379
     private val readerHost = ""
     private val readerPort = 0
 
@@ -16,28 +19,13 @@ class RedisConfiguration {
      *   - Read: Replica Redis
      * @return LettuceConnectionFactory
      */
-    @Bean
-    fun redisConnectionFactory(): LettuceConnectionFactory {
-        // Primary, Replica Config
-        val elastiCache = RedisStaticMasterReplicaConfiguration(primaryHost, primaryPort)
-        elastiCache.addNode(readerHost, readerPort)
-
-        // 1) lettuce 사용
-        val clientConfig = LettuceClientConfiguration.builder()
-                .readFrom(ReadFrom.REPLICA_PREFERRED)  // 2)
-                .build()
-
-        return LettuceConnectionFactory(elastiCache, clientConfig)
-    }
-
 
         @Bean
         fun redisConnectionFactory(): LettuceConnectionFactory {
             val configuration = RedisStandaloneConfiguration()
-            configuration.hostName = redisHost
-            configuration.port = redisPort
+            configuration.hostName = primaryHost
+            configuration.port = primaryPort
 //        configuration.password = RedisPassword.of(redisPassword)
             return LettuceConnectionFactory(configuration)
         }
-    }
 }
